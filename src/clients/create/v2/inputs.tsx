@@ -3,7 +3,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import type { ClientRequest } from "@/interfaces"
-import { createClientAsync } from "@/requests/client/clients-request"
+import { createClientV2Async } from "@/requests/client/clients-request"
 import { toast } from "sonner"
 import {
   Select,
@@ -15,7 +15,7 @@ import {
 import { formatCpf, formatDateInput } from "@/helpers"
 
 
-export default function Inputs(){
+export default function InputsV2(){
     const [name, setName] = useState<string>("")
     const [cpf, setCpf]  = useState<string>("")
     const [address, setAddress]  = useState<string>("")
@@ -25,7 +25,8 @@ export default function Inputs(){
     const [nacionality, setNacionality]  = useState<string>("")
     const [gender, setGender]  = useState<string>("")
 
-    const handleCreateClient = async () => {
+    
+    const handleCreateClient = async () => { 
       if (!/^\d{2}\/\d{2}\/\d{4}$/.test(birthDate)) {
         toast("Data de nascimento inválida. Use o formato DD/MM/AAAA.");
         return;
@@ -38,7 +39,7 @@ export default function Inputs(){
         toast("Data de nascimento inválida.");
         return;
       }
-       const userId = localStorage.getItem("userId")
+        const userId = localStorage.getItem("userId")
         const data: ClientRequest = {
           name,
           cpf,
@@ -52,16 +53,23 @@ export default function Inputs(){
         };
     
         try {
-          await createClientAsync(data);
+          await createClientV2Async(data);
           toast("Cadastrado realizado")
           setTimeout(() => window.location.reload(), 2000)
           return;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-          const status = error.status
+            console.log(error)
+          const status = error.code
           switch (status) {
-            case 400:
-              toast("Os campos NOME, CPF e DATA DE NASCIMENTO são obrigatórios.")
+            case "Model.Cpf":
+              toast("O campo cpf é obrigatório.")
+              break;
+            case "Model.Name":
+              toast("O campo nome é obrigatório")
+              break;
+            case "Model.Address":
+              toast("O campo endereço é obrigatório")
               break;
               case 401:
               toast("Você precisa estar autenticado para realizar essa ação no sistema.")
@@ -116,9 +124,9 @@ export default function Inputs(){
           </div>
           </header>
           <Input type="text" id="birthday" placeholder="DD/MM/AAAA" value={birthDate} onChange={(e) => {
-                  const formatted = formatDateInput(e.target.value);
-                  setBirthDate(formatted);
-                }} className="w-full" />
+                            const formatted = formatDateInput(e.target.value);
+                            setBirthDate(formatted);
+                          }} className="w-full" />
         </div>
 
         <div className="flex items-center gap-4" >

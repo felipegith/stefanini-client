@@ -13,6 +13,7 @@ export async function signupAsync(data : UserRequest){
 export async function signinAsync(data : UserRequest){
     try {
         const response = await api.post("user/sign-in", data);
+        console.log(response.data)
         return response.data; 
       } catch (error: any) {
         throw error.response?.data || error; 

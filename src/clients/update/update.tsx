@@ -17,7 +17,7 @@ export default function Update({id} : {id: string}){
             <DialogTrigger asChild className="w-1/2 cursor-pointer">
                 <Button variant="outline"><UserPen size={14}/></Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[1025px] ">
+            <DialogContent className="sm:max-w-[1025px] max-h-[90vh] overflow-y-auto ">
                 <DialogHeader>
                     <DialogTitle className="text-sm">Atualizar informações</DialogTitle>
                     <DialogDescription className="text-xs">

@@ -20,13 +20,13 @@ export default function Signin() {
     }
      try {
           const result = await signinAsync(data);
-          if(!result){
-            toast("Erro ao realizar a autenticação.")
+          if(result.token === "" || result.id === ""){
+            toast("Erro ao realizar a autenticação.");
             return;
           }
-          localStorage.setItem("token", result)
+          localStorage.setItem("token", result.token)
+          localStorage.setItem("userId", result.id);
             toast("Usuário autenticado com sucesso")
-            //setTimeout(() => window.location.reload(), 2000)
             navigate("/home")
             return;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

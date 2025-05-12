@@ -4,6 +4,7 @@ import { UsersRound, LogOut } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import CreateV2 from "@/clients/create/v2";
 
 export default function Header(){
     const navigate = useNavigate()
@@ -21,6 +22,11 @@ export default function Header(){
                 <div className="flex items-center gap-3 max-w-36 ">
                     <UsersRound color="#FFF" size={14} />
                     <Create />              
+                </div>
+
+                <div className="flex items-center gap-3 max-w-36 ">
+                    <UsersRound color="#FFF" size={14} />
+                    <CreateV2 />              
                 </div>
 
                 <div className="flex items-center gap-3 max-w-36">

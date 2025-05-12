@@ -17,7 +17,7 @@ export default function Details({id} : {id: string}){
             <DialogTrigger asChild>
                 <Button variant="outline"><Ellipsis size={14}/></Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[1025px]">
+            <DialogContent className="sm:max-w-[1025px] max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle className="text-sm">Detalhes do usuario</DialogTitle>
                     <DialogDescription className="text-xs">

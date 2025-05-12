@@ -47,7 +47,7 @@ export const columns: ColumnDef<Client>[] = [
   },
   {
     accessorKey: "id",
-    header: () => <div className="text-[#a5978b] text-xs font-semibold cursor-pointer">Mais detalhes</div>,
+    header: () => <div className="text-[#a5978b] text-xs font-semibold">Mais detalhes</div>,
     cell: ({row}) => {
         const id = row.getValue("id") as string
       return (             

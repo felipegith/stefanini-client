@@ -9,9 +9,11 @@ import Header from "@/_components/header"
 
 export default function Home() {
     const [data, setData] = useState<Client[]>([])
+    const userId = localStorage.getItem("userId")
+     
     useEffect(() => {
         const fetchData = async () => {
-        const clients = await findClientsAsync(); 
+        const clients = await findClientsAsync(userId); 
         setData(clients);
         
         };

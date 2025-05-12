@@ -9,6 +9,7 @@ export type Client = {
     gender: string;
     address: string;
     createdAt: string;
+    userId: string | null
 };
 
 export type ClientRequest = Omit<Client, "id" | "createdAt">;
