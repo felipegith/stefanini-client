@@ -14,7 +14,7 @@ export type Client = {
 
 export type ClientRequest = Omit<Client, "id" | "createdAt">;
 
-export type ClientUpdate = Omit<Client, "createdAt" | "cpf" | "birthDate">;
+export type ClientUpdate = Omit<Client, "createdAt" | "cpf" | "birthDate" | "userId">;
 
 
 export type UserRequest = {
