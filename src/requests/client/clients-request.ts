@@ -36,9 +36,9 @@ export async function findClientsAsync(id: string | null): Promise<Client[]> {
   try {
     const response = await api.get(`client/get-all/${id}`);
     return response.data;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     //  
-    console.log(error)
     return [];
   }
 }

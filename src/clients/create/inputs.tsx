@@ -32,7 +32,7 @@ export default function Inputs(){
       }
 
       const [day, month, year] = birthDate.split('/');
-      const parsedDate = new Date(`${year}-${month}-${day}`);
+      const parsedDate = new Date(Number(year), Number(month) - 1, Number(day));
 
       if (isNaN(parsedDate.getTime())) {
         toast("Data de nascimento inválida.");
