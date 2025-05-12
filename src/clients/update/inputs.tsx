@@ -124,7 +124,7 @@ export default function InputUpdate({id} : {id: string}){
                 <Label className="text-xs font-bold">Gênero</Label>
                 <Select onValueChange={setGender} value={gender}>
                     <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Theme" />
+                        <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="Masculino">Masculino</SelectItem>
