@@ -40,8 +40,8 @@ export default function Find({id} : {id: string}){
             </div>
 
             <div className="flex flex-col gap-1">
-                <Label className="text-xs font-bold">Genero:</Label>
-                {client?.gender == null || client?.gender == ""? <Label>A informação sobre genero não foi preenchida no cadastro</Label> : <Label>{client?.gender}</Label>}
+                <Label className="text-xs font-bold">Gênero:</Label>
+                {client?.gender == null || client?.gender == ""? <Label>A informação sobre gênero não foi preenchida no cadastro</Label> : <Label>{client?.gender}</Label>}
             </div>
             <div className="w-full flex items-center justify-center gap-2">
                 <Remove id={id} />

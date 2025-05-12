@@ -24,7 +24,13 @@ export default function Remove({id} : {id: string}){
         await removeClientAsync(id);
         toast("Cliente removido")
       } catch (error) {
-        toast(`Não foi possivel remover o cliente. ${error}`)
+        toast(`Não foi possivel remover o cliente. ${error}`, {
+                  style: {
+                    backgroundColor: "#f87171", 
+                    color: "#ffff",
+                    fontWeight: "bold"
+                  },
+        });
       }finally{
         setTimeout(() => window.location.reload(), 3000)
       }

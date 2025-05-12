@@ -28,10 +28,23 @@ export default function Signup() {
           const type = error.code
           switch (type) {
             case "Email":
-              toast("Informe um endereço de e-mail válido")
+              toast("Informe um endereço de e-mail válido", {
+                  style: {
+                    backgroundColor: "#f87171", 
+                    color: "#ffff",
+                    fontWeight: "bold"
+                  },
+                });
               break;
             case "Password":
-            toast("A senha deve conter no mínimo 8 caracteres")
+            toast("A senha deve conter no mínimo 8 caracteres", {
+                  style: {
+                    backgroundColor: "#f87171", 
+                    color: "#ffff",
+                    fontWeight: "bold"
+                  },
+                });
+             
               break;
             
             case "Email already exists":

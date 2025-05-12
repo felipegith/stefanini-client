@@ -58,16 +58,52 @@ export default function Inputs(){
           return;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-          const status = error.status
-          switch (status) {
-            case 400:
-              toast("Os campos NOME, CPF e DATA DE NASCIMENTO são obrigatórios.")
+          const type = error.code
+          switch (type) {
+            case "Model.Name":
+              toast("O campo nome é obrigatório", {
+                  style: {
+                    backgroundColor: "#f87171", 
+                    color: "#ffff",
+                    fontWeight: "bold"
+                  },
+                });
               break;
-              case 401:
-              toast("Você precisa estar autenticado para realizar essa ação no sistema.")
+              case "Cpf already exists":
+              toast("O CPF informado já esta sendo utilizado", {
+                  style: {
+                    backgroundColor: "#f87171", 
+                    color: "#ffff",
+                    fontWeight: "bold"
+                  },
+                });
+              break;
+               case "Email already exists":
+              toast("O email informado já esta sendo utilizado", {
+                  style: {
+                    backgroundColor: "#f87171", 
+                    color: "#ffff",
+                    fontWeight: "bold"
+                  },
+                });
+              break;
+               case "Model.Cpf":
+              toast("O campo CPF é obrigatório", {
+                  style: {
+                    backgroundColor: "#f87171", 
+                    color: "#ffff",
+                    fontWeight: "bold"
+                  },
+                });
               break;
             default:
-              toast("Um erro inesperado aconteceu")
+              toast("Um erro inesperado aconteceu", {
+                  style: {
+                    backgroundColor: "#f87171", 
+                    color: "#ffff",
+                    fontWeight: "bold"
+                  },
+                });
               break;
           }
         }

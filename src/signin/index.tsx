@@ -34,7 +34,13 @@ export default function Signin() {
           const type = error.code
           switch (type) {
             case "UserNotFound":
-              toast("Email ou senha inválidos")
+              toast("Email ou senha inválidos", {
+                  style: {
+                    backgroundColor: "#f87171", 
+                    color: "#ffff",
+                    fontWeight: "bold"
+                  },
+                });
               break;
             default:
               break;

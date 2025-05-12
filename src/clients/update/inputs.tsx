@@ -59,14 +59,34 @@ export default function InputUpdate({id} : {id: string}){
           return;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-          toast(`Erro ao atualizar os dados do cliente ${error}`)
-          
+            const type = error.code
+            switch (type) {
+                case "Client.EmailExists":
+                    toast("O email informado já esta sendo usado", {
+                        style: {
+                            backgroundColor: "#f87171", 
+                            color: "#ffff",
+                            fontWeight: "bold"
+                        },
+                     })
+                    break;
+            
+                default:
+                    toast(`Erro ao atualizar os dados do cliente ${error}`, {
+                    style: {
+                        backgroundColor: "#f87171", 
+                        color: "#ffff",
+                        fontWeight: "bold"
+                    },
+                    });
+                    break;
+            }
         }
       };
     return(
         <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-1 cursor-not-allowed">
-                <Label className="text-xs font-bold">Cpf</Label>
+                <Label className="text-xs font-bold">CPF</Label>
                 <Input value={cpf} disabled  />
             </div>
 
@@ -101,7 +121,7 @@ export default function InputUpdate({id} : {id: string}){
             </div>
 
              <div className="flex flex-col gap-1 ">
-                <Label className="text-xs font-bold">Genero</Label>
+                <Label className="text-xs font-bold">Gênero</Label>
                 <Select onValueChange={setGender} value={gender}>
                     <SelectTrigger className="w-full">
                         <SelectValue placeholder="Theme" />

@@ -17,7 +17,7 @@ export const columns: ColumnDef<Client>[] = [
  
   {
     accessorKey: "cpf",
-    header: () => <div className="text-[#a5978b] text-xs font-semibold">Cpf</div>,
+    header: () => <div className="text-[#a5978b] text-xs font-semibold">CPF</div>,
     cell: ({row}) => {
       return <div className="text-white text-xs font-medium">{row.getValue("cpf")}</div>
     }
