@@ -13,7 +13,7 @@ export type Client = {
     updatedAt: string;
 };
 
-export type ClientRequest = Omit<Client, "id" | "createdAt">;
+export type ClientRequest = Omit<Client, "id" | "createdAt" | "updatedAt">;
 
 export type ClientUpdate = Omit<Client, "createdAt" | "cpf" | "birthDate" | "userId" | "updatedAt">;
 
