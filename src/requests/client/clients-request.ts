@@ -5,6 +5,7 @@ export async function createClientAsync(data : ClientRequest){
     try {
         const response = await api.post("client", data);
         return response.data; 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         throw error.response?.data || error; 
       }
@@ -14,6 +15,7 @@ export async function updateClientAsync(data : ClientUpdate){
     try {
         const response = await api.patch("client", data);
         return response.data; 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         throw error.response?.data || error; 
       }
@@ -25,7 +27,7 @@ export async function findClientsAsync(): Promise<Client[]> {
     return response.data;
   } catch (error) {
     //  
-    console.log(`Aqui ${error.request.code}`)
+    console.log(error)
     return [];
   }
 }
@@ -45,6 +47,7 @@ export async function findClientAsync(id: string) : Promise<Client>{
     const response = await api.get(`client/${id}`)
     console.log(response.data)
     return response.data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error : any) {
     throw error.response?.data || error;
   }

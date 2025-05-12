@@ -1,11 +1,8 @@
 
 import type { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown, HistoryIcon } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import type { Client } from "@/interfaces"
 import { formatDate } from "@/helpers"
-import Remove from "@/clients/remove/remove"
 import Details from "@/clients/details/details"
 
 
@@ -17,25 +14,7 @@ export const columns: ColumnDef<Client>[] = [
       return <div className=" text-white text-xs font-medium">{row.getValue("name")}</div>
     }
   },
-  // {
-  //   accessorKey: "email",
-  //   header: ({ column }) => {
-  //     return (
-  //         <Button
-  //         variant="ghost"
-  //         className="text-[#a5978b] text-xs font-semibold w-14 "
-  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-  //       >
-  //         Email
-  //         <ArrowUpDown className="" />
-  //       </Button>
-  //     )
-  //   },
-  //   cell: ({row}) => {
-  //     const value = row.getValue("email") as string;
-  //     return <div className=" text-white text-xs font-medium">{value ?? "Emaiil não cadastrado"}</div>
-  //   }
-  // },
+ 
   {
     accessorKey: "cpf",
     header: () => <div className="text-[#a5978b] text-xs font-semibold">Cpf</div>,
