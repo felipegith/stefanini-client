@@ -12,7 +12,6 @@ export default function Find({id} : {id: string}){
     const handleClient = async (id : string) => {
         const result = await findClientAsync(id)
         setClient(result)
-        console.log(result)
     }
 
     useEffect(() => {

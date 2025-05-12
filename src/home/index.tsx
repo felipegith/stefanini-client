@@ -11,9 +11,9 @@ export default function Home() {
     const [data, setData] = useState<Client[]>([])
     useEffect(() => {
         const fetchData = async () => {
-        const members = await findClientsAsync(); 
-        setData(members);
-        console.log(members) 
+        const clients = await findClientsAsync(); 
+        setData(clients);
+        
         };
     
         fetchData();

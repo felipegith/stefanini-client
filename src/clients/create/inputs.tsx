@@ -52,7 +52,6 @@ export default function Inputs(){
           return;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-          console.log(error)
           const status = error.status
           switch (status) {
             case 400:
