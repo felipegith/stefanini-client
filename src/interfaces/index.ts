@@ -9,12 +9,13 @@ export type Client = {
     gender: string;
     address: string;
     createdAt: string;
-    userId: string | null
+    userId: string | null;
+    updatedAt: string;
 };
 
 export type ClientRequest = Omit<Client, "id" | "createdAt">;
 
-export type ClientUpdate = Omit<Client, "createdAt" | "cpf" | "birthDate" | "userId">;
+export type ClientUpdate = Omit<Client, "createdAt" | "cpf" | "birthDate" | "userId" | "updatedAt">;
 
 
 export type UserRequest = {

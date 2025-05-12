@@ -46,6 +46,40 @@ export const columns: ColumnDef<Client>[] = [
     },
   },
   {
+    accessorKey: "createdAt",
+    header: () => <div className="text-[#a5978b] text-xs font-semibold">Conta criada em</div>,
+    cell: ({row}) => {
+        const createdAt = row.getValue("createdAt") as string
+        const parsedDate = new Date(createdAt as string);
+        const isValid = !isNaN(parsedDate.getTime());
+          return (             
+              <div className="text-white text-xs font-medium"> 
+                     {isValid ? formatDate(parsedDate) : (
+                      <span className="text-red-400 italic">Data inválida</span>
+                     )}
+                </div>
+              )
+    }
+  },
+
+  {
+    accessorKey: "updatedAt",
+    header: () => <div className="text-[#a5978b] text-xs font-semibold">Conta atualizada em</div>,
+    cell: ({row}) => {
+        const updatedAt = row.getValue("updatedAt") as string | null
+        console.log(updatedAt)
+          return (             
+              <div className="text-white text-xs font-medium">
+                {updatedAt ? (
+                  formatDate(new Date(updatedAt))
+                ) : (
+                  <span className="text-red-400 italic">Não há atualizações</span>
+                )}
+              </div>
+              )
+    }
+  },
+  {
     accessorKey: "id",
     header: () => <div className="text-[#a5978b] text-xs font-semibold">Mais detalhes</div>,
     cell: ({row}) => {
